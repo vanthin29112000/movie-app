@@ -1,0 +1,36 @@
+.listmovies {
+   width: 90%;
+   height: 550px;
+   margin: 24px auto;
+   padding: 16px;
+   border-radius: 16px;
+   box-shadow: 2px 2px 8px 2px rgb(0 0 0 / 20%);
+}
+
+.listmovies__title {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.listmovies__title h1 {
+   font-size: 32px;
+   font-weight: 500;
+   color: black;
+   margin: 0px 8px;
+}
+
+.listmovies__title hr {
+   width: 40%;
+   height: 16px;
+   border: 3px solid black;
+   border-left: none;
+   border-right: none;
+}
+
+.listfilm {
+   max-width: 100%;
+   height: 95%;
+   margin: 0 auto;
+   margin-top: 8px;
+}

@@ -1,0 +1,116 @@
+.movie-info {
+   width: 100%;
+   height: fit-content;
+   padding: 32px 0px;
+   background-color: black;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.movie-info__content {
+   width: 90%;
+   min-height: 450px;
+   border-radius: 16px;
+   background-color: rgba(0, 0, 0, 0.9);
+   display: grid;
+   grid-template-columns: 25% 75%;
+   grid-gap: 16px;
+}
+
+.movie-info__content .poster {
+   width: 100%;
+   height: auto;
+   border-radius: 16px;
+   transition: all 0.3s ease 0s;
+   object-fit: cover;
+}
+
+.movie-info__content .poster:hover {
+   transform: scale(1.1);
+}
+
+.movie-info__content .text {
+   color: var(--light);
+   padding: 32px;
+   position: relative;
+}
+
+.text .name-movie {
+   font-size: 48px;
+   font-weight: bolder;
+   margin-bottom: 32px;
+}
+
+.text .plot {
+   font-size: 20px;
+   margin-bottom: 16px;
+}
+
+.rate-director {
+   width: 100%;
+   height: auto;
+   display: flex;
+   font-size: 20px;
+}
+
+.rate {
+   width: fit-content;
+   height: fit-content;
+   text-align: center;
+   margin-right: 16px;
+}
+
+.rate p {
+   width: 36px;
+   height: 36px;
+   margin: 0 auto;
+   text-align: center;
+   line-height: 36px;
+   font-weight: bolder;
+   border-radius: 128px;
+   background-color: var(--light);
+   color: black;
+}
+
+.director,
+.release-date {
+   width: fit-content;
+   text-align: center;
+   margin: 0 16px;
+}
+
+.director h3,
+.release-date h3 {
+   margin-bottom: 8px;
+}
+
+.movie-info-bar__content {
+   width: 92%;
+   height: 64px;
+   align-items: center;
+   padding-bottom: 0px;
+   position: absolute;
+   bottom: 32px;
+   display: flex;
+   justify-content: space-between;
+   background-color: rgba(128, 128, 128, 0.25);
+   border-radius: 16px;
+   padding: 0 16px;
+   font-size: 24px;
+}
+
+.running-time,
+.budget,
+.revenue {
+   display: flex;
+}
+
+.running-time p,
+.budget p,
+.revenue p {
+   margin: 0 8px;
+}
