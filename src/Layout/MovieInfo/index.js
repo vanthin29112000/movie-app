@@ -27,6 +27,7 @@ class MovieInfo extends Component {
          budget,
          revenue,
          release_date,
+         vote_average,
       } = this.props.movie;
       const bg_img = imageAPI.fetchImageURL(backdrop_path);
       const poster_img = imageAPI.fetchImageURL(poster_path);
@@ -44,7 +45,7 @@ class MovieInfo extends Component {
                   <div className="rate-director">
                      <div className="rate">
                         <h3>IMDb Rating</h3>
-                        <p>8</p>
+                        <p>{vote_average}</p>
                      </div>
                      <div className="director">
                         <h3>Director</h3>

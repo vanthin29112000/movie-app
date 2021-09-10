@@ -15,11 +15,7 @@ class NavBar extends Component {
             </Link>
 
             <div className="nav-bar__option">
-               <Search
-                  onEventClick={(ele) => {
-                     console.log(ele); //event click search
-                  }}
-               ></Search>
+               <Search baseURL={"/search"}></Search>
                <p>Login</p>
                <p>Sign in</p>
             </div>

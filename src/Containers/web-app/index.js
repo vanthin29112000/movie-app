@@ -3,6 +3,7 @@ import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
 
 import NavBar from "../../Layout/NavBar";
 import HomePage from "../HomePage";
+import ListMovieSearch from "../ListMovieSearch";
 import MoviesDetail from "../MoviesDetail";
 class WebApp extends Component {
    render() {
@@ -12,7 +13,10 @@ class WebApp extends Component {
 
             <Switch>
                <Route path="/" component={HomePage} exact></Route>
-
+               <Route
+                  path="/search/:key_word"
+                  component={ListMovieSearch}
+               ></Route>
                <Route path="/movie/:movie_id" component={MoviesDetail}></Route>
             </Switch>
          </BrowserRouter>

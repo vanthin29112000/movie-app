@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Carousel from "../../Components/Carousel";
+import Loading from "../../Components/Loading";
 import MoviesTopRated from "../../Layout/MoviesTopRated";
 import MoviesCard from "../../Layout/MoviesUpComing";
 import MoviesAPI from "../../Services/TheMovies";
@@ -13,6 +14,7 @@ class HomePage extends Component {
          moviesPopular: [],
          moviesTopRated: [],
          moviesUpComing: [],
+         isShowLoading: true,
       };
    }
 
@@ -24,11 +26,16 @@ class HomePage extends Component {
          moviesPopular: reponseMoviesPopular.data.results,
          moviesTopRated: reponseMoviesTopRates.data.results,
          moviesUpComing: reponseMoviesUpComing.data.results,
+         isShowLoading: false,
       });
    }
 
    render() {
+      const { isShowLoading } = this.state;
       const CarouselBaner = Carousel(MoviesTopRated);
+      if (isShowLoading) {
+         return <Loading></Loading>;
+      }
       return (
          <div className="homepage">
             <div className="homepage__carousel">

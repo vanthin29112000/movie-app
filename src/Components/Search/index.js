@@ -1,75 +1,51 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./Search.css";
-import PropTypes from "prop-types";
+import { useHistory } from "react-router";
 
-class Search extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         searchKey: "",
-         isShowInput: false,
-      };
-   }
+const Search = (props) => {
+   const [isShowInput, setShowInput] = useState(false);
+   const [searchKey, setSearchKey] = useState("");
+   const { baseURL } = props;
 
-   onChangeIsShowInput = (isShow) => {
-      this.setState({
-         isShowInput: !isShow,
-      });
+   const onChangeIsShowInput = () => {
+      setShowInput(!isShowInput);
    };
 
-   onChangeSearchKey = (e) => {
+   const onChangeSearchKey = (e) => {
       const { value } = e.target;
-      this.setState({
-         searchKey: value,
-      });
+      setSearchKey(value);
    };
 
-   onSubmitChange = (e) => {
+   const history = useHistory();
+   const onSubmitChange = (e) => {
       e.preventDefault();
-      this.onChangeIsShowInput(this.state.isShowInput);
-      this.props.onEventClick(this.state.searchKey);
-
-      this.setState({
-         searchKey: "",
-      });
+      // onChangeIsShowInput(isShowInput);
+      if (searchKey === "") {
+         alert("Please Enter Moives ");
+      } else {
+         setSearchKey("");
+         history.push(`${baseURL}/${searchKey}`);
+      }
    };
 
-   render() {
-      return (
-         <form className="nav-bar__search">
-            {this.state.isShowInput ? (
-               <>
-                  <input
-                     type="text"
-                     placeholder="Enter name movie ..."
-                     onChange={this.onChangeSearchKey}
-                     value={this.state.searchKey}
-                  ></input>
-                  <button type="submit" onClick={this.onSubmitChange}>
-                     <i type="submit" className="fas fa-search"></i>
-                  </button>
-               </>
-            ) : (
-               <i
-                  className="fas fa-search"
-                  onClick={() =>
-                     this.onChangeIsShowInput(this.state.isShowInput)
-                  }
-               ></i>
-            )}
-         </form>
-      );
-   }
-}
-
-Search.defaultProps = {
-   onEventClick: (ele) => {
-      console.log("please Enter");
-   },
+   return (
+      <form className="nav-bar__search" onSubmit={onSubmitChange}>
+         {isShowInput ? (
+            <>
+               <input
+                  type="text"
+                  placeholder="Enter name movie ..."
+                  onChange={onChangeSearchKey}
+                  value={searchKey}
+               ></input>
+               <button type="submit">
+                  <i type="submit" className="fas fa-search"></i>
+               </button>
+            </>
+         ) : (
+            <i className="fas fa-search" onClick={onChangeIsShowInput}></i>
+         )}
+      </form>
+   );
 };
-
-Search.propType = {
-   onEventClick: PropTypes.func,
-};
-
 export default Search;
